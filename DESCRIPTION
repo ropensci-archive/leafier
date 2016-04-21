@@ -1,0 +1,37 @@
+Package: leafier
+Type: Package
+Title: Render large datasets in leaflet
+Version: 0.0.1
+Date: 2016-04-21
+Authors@R: c(person(c("Jeffrey", "O"), "Hanson", email='jeffrey.hanson@uqconnect.edu.au', role = c("aut", "cre")),
+	person(c('Michael'), 'Cheng', role='aut'),
+	person(c('Courtney'), 'Campany', role='aut'),
+	person(c('Matt'), 'Watts', role='aut'),
+	person(c('Amy'), 'Cook', role='aut'),
+	person(c('Sam'), 'Rathmanner', role='aut'),
+	person(c('Ruth'), 'Luscombe', role='aut'))
+Description: This R package provides tools to preprocess and render large spatial datasets in leafet.
+Imports:
+    methods,
+    sp,
+    rgeos,
+    raster,
+    rgdal
+Depends:
+    R(>= 3.1.0)
+LazyData: true
+License: GPL-3
+VignetteBuilder: knitr
+SystemRequirements: C++11
+Suggests:
+    knitr,
+    rmarkdown
+Collate:
+    'SimpleSpatialData.R'
+    'dependencies.R'
+    'generics.R'
+    'leafier-internal.R'
+    'misc.R'
+    'preprocess.R'
+    'render.R'
+RoxygenNote: 5.0.1
