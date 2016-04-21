@@ -1,20 +1,38 @@
-#' @include leafier-internal.R misc.R 
+#' @include leafier-internal.R misc.R SimpleSpatialPointsDataFrame.R SimpleSpatialLinesDataFrame.R SimpleSpatialPolygonsDataFrame.R simplifyData.R
 
-#' Preprocesses Lines
-#'
-#' This function preprocesses lines
-#'
-#' @param x \code{SpatialLinesDataFrame} object
-#' @param zoom.level \code{numeric} with zoom levels at which to pre-process data. Defaults to \code{1:12}.
-#' @param simplify.tolerance \code{numeric} tolerance to simplify the data at the specified zoom levels. Defaults to \code{c(1,2,3,4,5,6,7,8,12)}. 
-#' @examples
-#' data(lines)
-#' preprocessLines
+#' @rdname preprocess
+#' @method preprocess SpatialPointsDataFrame
 #' @export
-preprocessLines <- function(x) {
-	
-	
-	
-	return(NULL)
+preprocess.SpatialPointsDataFrame <- function(x, zoom.level=1:12, simplify.tolerance=1:12) {
+	SimpleSpatialPointsDataFrame(
+		data=x@data,
+		points=Map(simplifyData.SpatialPoints, x=list(x)[rep(1, length(zoom.level))], tol=simplify.tolerance),
+		zoom.level=zoom.level,
+		simplify.tolerance=simplify.tolerance
+	)
 }
- 
+
+#' @rdname preprocess
+#' @method preprocess SpatialLinesDataFrame
+#' @export
+preprocess.SpatialLinesDataFrame <- function(x, zoom.level=1:12, simplify.tolerance=1:12) {
+	SimpleSpatialLinesDataFrame(
+		data=x@data,
+		lines=Map(simplifyData.SpatialLines, x=list(x)[rep(1, length(zoom.level))], tol=simplify.tolerance),
+		zoom.level=zoom.level,
+		simplify.tolerance=simplify.tolerance
+	)
+}
+
+#' @rdname preprocess
+#' @method preprocess SpatialPolygonsDataFrame
+#' @export
+preprocess.SpatialPolygonsDataFrame <- function(x, zoom.level=1:12, simplify.tolerance=1:12) {
+	SimpleSpatialPolygonsDataFrame(
+		data=x@data,
+		polygons=Map(simplifyData.SpatialPolygons, x=list(x)[rep(1, length(zoom.level))], tol=simplify.tolerance),
+		zoom.level=zoom.level,
+		simplify.tolerance=simplify.tolerance
+	)
+}
+

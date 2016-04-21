@@ -10,7 +10,8 @@ Authors@R: c(person(c("Jeffrey", "O"), "Hanson", email='jeffrey.hanson@uqconnect
 	person(c('Amy'), 'Cook', role='aut'),
 	person(c('Sam'), 'Rathmanner', role='aut'),
 	person(c('Ruth'), 'Luscombe', role='aut'))
-Description: This R package provides tools to preprocess and render large spatial datasets in leafet.
+Description: This R package provides tools to preprocess and render large
+    spatial datasets in leafet.
 Imports:
     methods,
     sp,
@@ -27,11 +28,16 @@ Suggests:
     knitr,
     rmarkdown
 Collate:
-    'SimpleSpatialData.R'
+    'misc.R'
+    'leafier-internal.R'
+    'SimpleSpatialDataFrame.R'
+    'SimpleSpatialLinesDataFrame.R'
+    'SimpleSpatialPointsDataFrame.R'
+    'SimpleSpatialPolygonsDataFrame.R'
     'dependencies.R'
     'generics.R'
-    'leafier-internal.R'
-    'misc.R'
+    'geom.subset.R'
+    'simplifyData.R'
     'preprocess.R'
     'render.R'
 RoxygenNote: 5.0.1
