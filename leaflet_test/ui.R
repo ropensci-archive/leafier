@@ -11,6 +11,6 @@ titlePanel("Sweet Bike Lanes for Brissy")
 
 shinyUI(fluidPage(
   
-leafletOutput ("plot")
+leafletOutput("plot")
 
 ))
