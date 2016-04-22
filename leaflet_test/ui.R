@@ -11,6 +11,7 @@ titlePanel("Sweet Bike Lanes for Brissy")
 
 shinyUI(fluidPage(
   
-leafletOutput("plot")
+  sliderInput("overplot", "overplot_factor", min = -0.5, max = 1, step= 0.05, value = 0.2),
+  leafletOutput("plot")
 
 ))
