@@ -1,58 +1,38 @@
-
-library(shiny)
-library(leaflet)
-library(BrisbaneBikeways)
-library(dplyr)
-
-geom.subset <- function(spgeom, top, left, bottom, right ){
-  
-  coords <- data.frame(y = c(left, right, right, left ), x =c(top, top, bottom, bottom) )
-  poly <-  sp::Polygon(coords)
-  polys <- sp::Polygons( list(poly) , ID =0)
-  polys.spatial <- SpatialPolygons(list(polys), proj4string =  spgeom@proj4string)
-  inter <- rgeos::gIntersection(spgeom, polys.spatial, byid =TRUE)
-} 
-
-bikeways <- bikeways2015#[grepl('BRISBANE', bikeways2015$suburb),]
-
 shinyServer(function(input, output) {
-  
+        
   plot_data <- reactive({
-    
+    # return null if the map isn't initialized properly
     if(is.null(input$plot_bounds$north)){
-      
-      print("plot_data plotbounds = NULL")
-      
-      return(bikeways)
+      return(NULL)
     }
-    
+    # but if it has initialized, then we extract the bounding box of the map
     top=input$plot_bounds$north
     left=input$plot_bounds$west
     bottom=input$plot_bounds$south
     right=input$plot_bounds$east
-    
-   # print("plot_data is good")
-    g <- geom.subset(spgeom=bikeways,top=top, left=left, bottom=bottom, right=right)
-    
-    print(length(g@lines))
-    g
+    # extract simplified data for the current zoom level, and then clip it to the map
+    g <- geom.subset(spgeom=bikeways_simple[[as.integer(input$plot_zoom)]],top=top, left=left, bottom=bottom, right=right)
+    cat('zoom level = ', input$plot_zoom,
+        '; tol = ', tols[as.integer(input$plot_zoom)],
+        '; length =',suppressWarnings(gLength(g)),
+        '\n')
+    # return the clipped data
+    return(g)
   })
   
-  
+  # initialise map
   output$plot <- renderLeaflet  ({
-    
-    print("rendering leaflet")
-  
-    leaflet() %>% addTiles() %>% setView(lng = 153.0292, lat= -27.47228, zoom = 15)
+     leaflet() %>% addTiles() %>% setView(lng = 153.0292, lat= -27.47228, zoom = 15) %>% addPolylines(data=disaggregate(bikeways), group='base')
   })
   
+  # add/update the lines in the map
   observe({
-    data <- plot_data()
-    if (is.null(plot_data)) {return()}
-    
-    print("updating plot")
-    
-    leafletProxy("plot")%>% addPolylines(data=data)
+    pdata <- plot_data()
+    # check if the map properly initialized
+    if (is.null(pdata)) {return()}
+    # but if the map is initialized, then we load the lines
+    # this also gets when we pan/zoom
+    leafletProxy("plot") %>% clearGroup('line') %>% addPolylines(data=pdata,  color='red', group='line')
   })
   
 })
