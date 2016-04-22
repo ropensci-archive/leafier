@@ -103,7 +103,7 @@ needs_new_data <- reactive({
   })
   
   get_data_for_level <- reactive({
-    return(bikeways)
+    return(bikeways_simple[[as.integer(input$plot_zoom)]])
   })
   
   
