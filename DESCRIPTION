@@ -20,13 +20,11 @@ Imports:
     raster,
     rgdal
 Depends:
-    R(>= 3.1.0), knitr
+    R(>= 3.1.0)
 LazyData: true
 License: GPL-3
-VignetteBuilder: knitr
 SystemRequirements: C++11
 Suggests:
-    knitr,
     rmarkdown
 Collate:
     'misc.R'
