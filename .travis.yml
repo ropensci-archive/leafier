@@ -27,6 +27,7 @@ install:
   - ./travis-tool.sh install_aptget r-cran-rcpp libquantlib0-dev r-cran-runit r-cran-rgl littler r-cran-shiny
   
 r_packages:
+  - devtools
   - knitr
   - covr
   - rmarkdown
