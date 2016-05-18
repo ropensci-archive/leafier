@@ -1,5 +1,6 @@
 language: r
 sudo: required
+dist: trusty
 warnings_are_errors: false
 
 os:
@@ -14,6 +15,12 @@ env:
 before_install: 
   - echo "TRAVIS_OS_NAME = $TRAVIS_OS_NAME"
   - echo "options(repos = c(CRAN='http://cran.rstudio.com'))" > ~/.Rprofile
+  - curl -OL http://raw.github.com/eddelbuettel/r-travis/master/scripts/travis-tool.sh
+  - chmod 755 ./travis-tool.sh
+  - ./travis-tool.sh bootstrap
+  
+install:
+  - ./travis-tool.sh install_aptget r-cran-rcpp libquantlib0-dev r-cran-runit r-cran-rgl r-cran-zoo libboost-dev libboost-test-dev littler r-cran-shiny
   
 r_packages:
   - covr
