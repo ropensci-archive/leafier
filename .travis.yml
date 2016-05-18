@@ -12,6 +12,9 @@ env:
   global:
     - NOT_CRAN=true
     - _R_CHECK_FORCE_SUGGESTS_=False
+    - R_BUILD_ARGS="--no-build-vignettes" 
+    - R_CHECK_ARGS="--as-cran"
+    - BOOTSTRAP_LATEX="1"  
 
 before_install: 
   - echo "TRAVIS_OS_NAME = $TRAVIS_OS_NAME"
