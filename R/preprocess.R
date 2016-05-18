@@ -1,7 +1,5 @@
-#' @include leafier-internal.R misc.R SimpleSpatialPointsDataFrame.R SimpleSpatialLinesDataFrame.R SimpleSpatialPolygonsDataFrame.R simplifyData.R
+#' @include generics.R leafier-internal.R misc.R SimpleSpatialPointsDataFrame.R SimpleSpatialLinesDataFrame.R SimpleSpatialPolygonsDataFrame.R simplifyData.R
 
-#' @rdname preprocess
-#' @method preprocess SpatialPointsDataFrame
 #' @export
 preprocess.SpatialPointsDataFrame <- function(x, zoom.level=1:12, simplify.tolerance=1:12) {
 	SimpleSpatialPointsDataFrame(
@@ -12,8 +10,6 @@ preprocess.SpatialPointsDataFrame <- function(x, zoom.level=1:12, simplify.toler
 	)
 }
 
-#' @rdname preprocess
-#' @method preprocess SpatialLinesDataFrame
 #' @export
 preprocess.SpatialLinesDataFrame <- function(x, zoom.level=1:12, simplify.tolerance=1:12) {
 	SimpleSpatialLinesDataFrame(
@@ -24,8 +20,6 @@ preprocess.SpatialLinesDataFrame <- function(x, zoom.level=1:12, simplify.tolera
 	)
 }
 
-#' @rdname preprocess
-#' @method preprocess SpatialPolygonsDataFrame
 #' @export
 preprocess.SpatialPolygonsDataFrame <- function(x, zoom.level=1:12, simplify.tolerance=1:12) {
 	SimpleSpatialPolygonsDataFrame(

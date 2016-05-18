@@ -1,8 +1,8 @@
-#'@include leafier-internal.R misc.R
-
-#' Preprocess objects
+#' @include leafier-internal.R misc.R
+#' @title Preprocess objects
+#' @rdname preprocess
 #'
-#' This function preprocesses \code{Spatial*} objects.
+#' @description This function preprocesses \code{Spatial*} objects.
 #'
 #' @param x \code{SpatialPointsDataFrame},  \code{SpatialLinesDataFrame}, \code{SpatialPolygonsDataFrame} object.
 #' @param zoom.level \code{numeric} with zoom levels at which to pre-process data. Defaults to \code{1:12}.
