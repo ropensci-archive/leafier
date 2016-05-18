@@ -20,9 +20,10 @@ before_install:
   - ./travis-tool.sh bootstrap
   
 install:
-  - ./travis-tool.sh install_aptget r-cran-rcpp libquantlib0-dev r-cran-runit r-cran-rgl r-cran-zoo libboost-dev libboost-test-dev littler r-cran-shiny
+  - ./travis-tool.sh install_aptget r-cran-rcpp libquantlib0-dev r-cran-runit r-cran-rgl littler r-cran-shiny
   
 r_packages:
+  - knitr
   - covr
   - rmarkdown
   - testthat
