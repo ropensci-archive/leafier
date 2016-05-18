@@ -28,7 +28,7 @@ install:
 #  - ./travis-tool.sh install_aptget r-cran-rcpp libquantlib0-dev r-cran-runit r-cran-rgl littler r-cran-shiny
    - ./travis-tool.sh install_aptget r-cran-rgl
    - ./travis-tool.sh install_r sp
-   - ./travis-tool.sh install_r geos
+   - ./travis-tool.sh install_r rgeos
    - ./travis-tool.sh install_r raster
    - ./travis-tool.sh install_r leaflet
    - ./travis-tool.sh install_r shiny
