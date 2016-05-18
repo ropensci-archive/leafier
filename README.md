@@ -1,11 +1,7 @@
  leafier (under development)
 ============
 
-[![Travis Build Status](https://img.shields.io/travis/paleo13/leafier/master.svg?label=Mac%20OSX%20%26%20Linux)](https://travis-ci.org/paleo13/leafier)
-[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/paleo13/leafier/master.svg?label=Windows)](https://ci.appveyor.com/project/paleo13/leafier)
-[![Coverage Status](https://codecov.io/github/paleo13/leafier/coverage.svg?branch=master)](https://codecov.io/github/paleo13/leafier?branch=master)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/leafier)](http://cran.r-project.org/package=leafier)
-[![DOI](https://zenodo.org/badge/18940/paleo13/leafier.svg)](https://zenodo.org/badge/latestdoi/18940/paleo13/leafier)
+[![Travis Build Status](https://img.shields.io/travis/jonocarroll/leafier/master.svg?label=Mac%20OSX%20%26%20Linux)](https://travis-ci.org/jonocarroll/leafier)
 
 #### Render large spatial datasets in R.
 
