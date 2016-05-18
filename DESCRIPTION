@@ -20,7 +20,7 @@ Imports:
     raster,
     rgdal
 Depends:
-    R(>= 3.1.0)
+    R(>= 3.1.0), knitr
 LazyData: true
 License: GPL-3
 VignetteBuilder: knitr
