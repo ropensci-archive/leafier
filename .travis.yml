@@ -1,7 +1,6 @@
-language: R
+language: r
 cache: packages
-sudo: required
-dist: trusty
+sudo: false
 warnings_are_errors: false
 
 os:
@@ -11,11 +10,11 @@ os:
 
 env:
   global:
-    - NOT_CRAN=true
     - _R_CHECK_FORCE_SUGGESTS_=False
-    - R_BUILD_ARGS="--no-build-vignettes" 
-#    - R_CHECK_ARGS="--as-cran"
-#    - BOOTSTRAP_LATEX="1"  
+    - R_LIBS="http://cran.rstudio.com"
+    - R_BUILD_ARGS="--no-build-vignettes --no-manual"
+    - R_CHECK_ARGS="--no-build-vignettes --no-manual"
+    - BOOTSTRAP_LATEX=""
 
 before_install: 
   - echo "TRAVIS_OS_NAME = $TRAVIS_OS_NAME"
@@ -26,7 +25,7 @@ before_install:
   
 install:
 #  - ./travis-tool.sh install_aptget r-cran-rcpp libquantlib0-dev r-cran-runit r-cran-rgl littler r-cran-shiny
-   - ./travis-tool.sh install_aptget r-cran-rgl
+#   - ./travis-tool.sh install_aptget r-cran-rgl
    - ./travis-tool.sh install_r sp
    - ./travis-tool.sh install_r rgeos
    - ./travis-tool.sh install_r raster
@@ -35,7 +34,11 @@ install:
    - ./travis-tool.sh install_r devtools
    - ./travis-tool.sh install_r knitr
 #  - Rscript -e 'install.packages(c("devtools", "sp", "rgeos", "raster", "leaflet", "shiny", "rgdal"), repos = "http://cran.rstudio.com")'
-  
+
+build_script:
+  - travis-tool.sh install_deps
+  - travis-tool.sh r_binary_install rgdal
+
 r_packages:
 #  - devtools
 #  - rgeos
