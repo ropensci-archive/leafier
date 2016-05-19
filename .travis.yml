@@ -18,11 +18,7 @@ env:
 
 addons:
   apt:
-    sources:
-    - r-packages-precise
     packages:
-    - r-base-dev
-    - r-recommended
     - libgdal1-dev
     - libproj-dev
 
