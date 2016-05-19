@@ -18,14 +18,21 @@ env:
 
 addons:
   apt:
+    sources:
+    - r-packages-precise
     packages:
-      - r-cran-rgl
+    - r-base-dev
+    - r-recommended
+    - libgdal1-dev
+    - libproj-dev
 
 #before_install: 
 #  - echo "TRAVIS_OS_NAME = $TRAVIS_OS_NAME"
 #  - echo "options(repos = c(CRAN='http://cran.rstudio.com'))" > ~/.Rprofile
 
-#install:
+install:
+  - Rscript -e "if (!require('devtools')) install.packages('devtools')"
+  - Rscript -e "devtools::install_deps(dep = TRUE)"
 #  - ./travis-tool.sh install_aptget r-cran-rcpp libquantlib0-dev r-cran-runit r-cran-rgl littler r-cran-shiny
 #   - ./travis-tool.sh install_aptget r-cran-rgl
 #   - ./travis-tool.sh install_r sp
@@ -41,18 +48,18 @@ addons:
 #  - travis-tool.sh install_deps
 #  - travis-tool.sh r_binary_install rgdal
 
-r_packages:
-  - devtools
-  - rgeos
+#r_packages:
+#  - devtools
+#  - rgeos
 #  - rgdal
-  - raster
-  - sp
-  - leaflet
-  - shiny
-  - knitr
+#  - raster
+#  - sp
+#  - leaflet
+#  - shiny
+#  - knitr
 #  - covr
-  - rmarkdown
-  - testthat
+#  - rmarkdown
+#  - testthat
   
 #after_success:
 #  - Rscript -e 'covr::codecov()'
