@@ -1,67 +1,18 @@
+# Sample .travis.yml for R projects from https://github.com/craigcitro/r-travis
+
 language: r
-cache: packages
-sudo: false
-warnings_are_errors: false
 
-os:
-  - linux
-#  - osx
-#  - windows
+sudo: required
 
-env:
-  global:
-    - _R_CHECK_FORCE_SUGGESTS_=False
-    - R_LIBS="http://cran.rstudio.com"
-    - R_BUILD_ARGS="--no-build-vignettes --no-manual"
-    - R_CHECK_ARGS="--no-build-vignettes --no-manual"
-    - BOOTSTRAP_LATEX=""
+#before_install:
+#- sudo apt-get install aptitude
+#- sudo aptitude install libgdal-dev libproj-dev --assume-yes
 
-before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libgdal-dev libgdal1-dev libproj-dev
+global:
+- _R_CHECK_FORCE_SUGGESTS_=FALSE
 
-#addons:
-#  apt:
-#    packages:
-#    - libgdal-dev
-#    - libgdal1-dev
-#    - libproj-dev
+r_binary_packages:
+- rgdal
+- sp
+- raster
 
-#before_install: 
-#  - echo "TRAVIS_OS_NAME = $TRAVIS_OS_NAME"
-#  - echo "options(repos = c(CRAN='http://cran.rstudio.com'))" > ~/.Rprofile
-
-install:
-  - Rscript -e "if (!require('devtools')) install.packages('devtools')"
-  - Rscript -e "devtools::install_deps(dep = TRUE)"
-#  - ./travis-tool.sh install_aptget r-cran-rcpp libquantlib0-dev r-cran-runit r-cran-rgl littler r-cran-shiny
-#   - ./travis-tool.sh install_aptget r-cran-rgl
-#   - ./travis-tool.sh install_r sp
-#  - ./travis-tool.sh install_r rgeos
-#   - ./travis-tool.sh install_r raster
-#   - ./travis-tool.sh install_r leaflet
-#   - ./travis-tool.sh install_r shiny
-#   - ./travis-tool.sh install_r devtools
-#   - ./travis-tool.sh install_r knitr
-#  - Rscript -e 'install.packages(c("devtools", "sp", "rgeos", "raster", "leaflet", "shiny", "rgdal"), repos = "http://cran.rstudio.com")'
-
-#build_script:
-#  - travis-tool.sh install_deps
-#  - travis-tool.sh r_binary_install rgdal
-
-#r_packages:
-#  - devtools
-#  - rgeos
-#  - rgdal
-#  - raster
-#  - sp
-#  - leaflet
-#  - shiny
-#  - knitr
-#  - covr
-#  - rmarkdown
-#  - testthat
-  
-#after_success:
-#  - Rscript -e 'covr::codecov()'
- 
