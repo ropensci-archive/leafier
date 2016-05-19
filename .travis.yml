@@ -8,7 +8,7 @@ global:
 - _R_CHECK_FORCE_SUGGESTS_=FALSE
 
 before_install:
- - sudo apt-get update && sudo apt-get install libhdf5-serial-dev libgdal-dev libproj-dev
+ - sudo apt-get update && sudo apt-get install libhdf5-dev libhdf5-serial-dev libgdal-dev libproj-dev
 
 r_binary_packages:
 - rgdal
