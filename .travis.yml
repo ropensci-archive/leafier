@@ -3,40 +3,42 @@ cache: packages
 sudo: required
 dist: trusty
 warnings_are_errors: false
+script: ./travis-tool.sh
 
 os:
   - linux
 #  - osx
 #  - windows
 
+before_script:
+  - sudo apt-get --yes --force-yes update -qq
+  - sudo apt-get install -y gdal-bin libgdal-dev libgdal1-dev netcdf-bin libproj-dev libv8-dev
+  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+  - chmod 755 ./travis-tool.sh
+  - ./travis-tool.sh bootstrap
+  - ./travis-tool.sh install_deps
+
 env:
   global:
     - NOT_CRAN=true
     - _R_CHECK_FORCE_SUGGESTS_=False
-    - R_BUILD_ARGS="--no-build-vignettes" 
+    - R_BUILD_ARGS="--no-build-vignettes --no-manual" 
 #    - R_CHECK_ARGS="--as-cran"
 #    - BOOTSTRAP_LATEX="1"  
 
-before_install: 
-  - echo "TRAVIS_OS_NAME = $TRAVIS_OS_NAME"
-  - echo "options(repos = c(CRAN='http://cran.rstudio.com'))" > ~/.Rprofile
-  - curl -OL http://raw.github.com/eddelbuettel/r-travis/master/scripts/travis-tool.sh
-  - chmod 755 ./travis-tool.sh
-  - ./travis-tool.sh bootstrap
-  
-install:
+#install:
 #  - ./travis-tool.sh install_aptget r-cran-rcpp libquantlib0-dev r-cran-runit r-cran-rgl littler r-cran-shiny
-   - ./travis-tool.sh install_aptget r-cran-rgl
-   - ./travis-tool.sh install_r sp
-   - ./travis-tool.sh install_r rgeos
-   - ./travis-tool.sh install_r raster
-   - ./travis-tool.sh install_r leaflet
-   - ./travis-tool.sh install_r shiny
-   - ./travis-tool.sh install_r devtools
-   - ./travis-tool.sh install_r knitr
-#  - Rscript -e 'install.packages(c("devtools", "sp", "rgeos", "raster", "leaflet", "shiny", "rgdal"), repos = "http://cran.rstudio.com")'
+#   - ./travis-tool.sh install_aptget r-cran-rgl
+#   - ./travis-tool.sh install_r sp
+#   - ./travis-tool.sh install_r rgeos
+#   - ./travis-tool.sh install_r raster
+#   - ./travis-tool.sh install_r leaflet
+#   - ./travis-tool.sh install_r shiny
+#   - ./travis-tool.sh install_r devtools
+#   - ./travis-tool.sh install_r knitr
+##  - Rscript -e 'install.packages(c("devtools", "sp", "rgeos", "raster", "leaflet", "shiny", "rgdal"), repos = "http://cran.rstudio.com")'
   
-r_packages:
+#r_packages:
 #  - devtools
 #  - rgeos
 ##  - rgdal
@@ -46,8 +48,8 @@ r_packages:
 #  - shiny
 #  - knitr
 #  - covr
-  - rmarkdown
-  - testthat
+#  - rmarkdown
+#  - testthat
   
 #after_success:
 #  - Rscript -e 'covr::codecov()'
