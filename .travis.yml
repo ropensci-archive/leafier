@@ -1,10 +1,6 @@
-# Sample .travis.yml for R projects from https://github.com/craigcitro/r-travis
-language: r
-
 sudo: required
 dist: trusty
-warnings_are_errors: false
-script: ./travis-tool.sh
+script: ./travis-tool.sh run_tests
 
 before_script:
   - sudo apt-get --yes --force-yes update -qq
@@ -14,39 +10,12 @@ before_script:
   - ./travis-tool.sh bootstrap
   - ./travis-tool.sh install_deps
 
-env:
-  global:
-    - NOT_CRAN=true
-    - _R_CHECK_FORCE_SUGGESTS_=false
-    - R_BUILD_ARGS="--no-build-vignettes --no-manual" 
-#    - R_CHECK_ARGS="--as-cran"
-#    - BOOTSTRAP_LATEX="1"  
+after_failure:
+  - ./travis-tool.sh dump_logs
 
-#install:
-#  - ./travis-tool.sh install_aptget r-cran-rcpp libquantlib0-dev r-cran-runit r-cran-rgl littler r-cran-shiny
-#   - ./travis-tool.sh install_aptget r-cran-rgl
-#   - ./travis-tool.sh install_r sp
-#   - ./travis-tool.sh install_r rgeos
-#   - ./travis-tool.sh install_r raster
-#   - ./travis-tool.sh install_r leaflet
-#   - ./travis-tool.sh install_r shiny
-#   - ./travis-tool.sh install_r devtools
-#   - ./travis-tool.sh install_r knitr
-##  - Rscript -e 'install.packages(c("devtools", "sp", "rgeos", "raster", "leaflet", "shiny", "rgdal"), repos = "http://cran.rstudio.com")'
-  
-#r_packages:
-#  - devtools
-#  - rgeos
-##  - rgdal
-#  - raster
-#  - sp
-#  - leaflet
-#  - shiny
-#  - knitr
-#  - covr
-#  - rmarkdown
-#  - testthat
-  
-#after_success:
-#  - Rscript -e 'covr::codecov()'
- 
+env:
+   global:
+     - R_LIBS="http://cran.rstudio.com"
+     - R_BUILD_ARGS="--no-build-vignettes --no-manual"
+     - R_CHECK_ARGS="--no-build-vignettes --no-manual --as-cran"
+     - BOOTSTRAP_LATEX=""
