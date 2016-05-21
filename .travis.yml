@@ -5,11 +5,14 @@ script: ./travis-tool.sh install_deps
 
 before_script:
   - sudo apt-get --yes --force-yes update -qq
-  - sudo apt-get install -y gdal-bin libgdal-dev libgdal1-dev netcdf-bin libproj-dev libv8-dev
+  - sudo apt-get install -y gdal-bin libgdal-dev libgdal1-dev netcdf-bin libproj-dev libv8-dev 
   - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
   - chmod 755 ./travis-tool.sh
   - ./travis-tool.sh bootstrap
-#  - ./travis-tool.sh install_deps
+
+r_binary_packages:
+ - sp
+ - rgdal
 
 r_build_args: --no-build-vignettes --no-manual 
 r_check_args: --no-build-vignettes --no-manual

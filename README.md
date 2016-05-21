@@ -1,7 +1,8 @@
  leafier (under development)
 ============
 
-[![Build Status](https://travis-ci.org/jonocarroll/leafier.svg?branch=master)](https://travis-ci.org/jonocarroll/leafier)
+[![Travis CI Build Status](https://travis-ci.org/jonocarroll/leafier.svg?branch=master)](https://travis-ci.org/jonocarroll/leafier)
+[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/jonocarroll/leafier/master.svg?label=Windows)](https://ci.appveyor.com/project/jonocarroll/leafier)
 
 #### Render large spatial datasets in R.
 
