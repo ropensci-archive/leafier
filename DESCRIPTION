@@ -17,15 +17,15 @@ Imports:
     methods,
     sp,
     rgeos,
-    raster,
-    rgdal
+    rgdal,
+    raster
 LazyData: true
 License: GPL-3
 SystemRequirements: C++11
 Suggests:
     rmarkdown,
-    leaflet,
-    shiny
+    shiny,
+    leaflet
 Collate:
     'misc.R'
     'leafier-internal.R'

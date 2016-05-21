@@ -1,5 +1,6 @@
 language: r
 sudo: true
+dist: trusty
 #script: ./travis-tool.sh 
 warnings_are_errors: false
 
@@ -13,6 +14,10 @@ warnings_are_errors: false
 
 #after_failure:
 #  - ./travis-tool.sh dump_logs
+
+before_script:
+  - sudo apt-get --yes --force-yes update -qq
+  - sudo apt-get install -y gdal-bin libgdal-dev libgdal1-dev netcdf-bin libproj-dev libv8-dev
 
 #env:
 #   global:
