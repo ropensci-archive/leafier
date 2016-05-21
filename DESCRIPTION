@@ -20,7 +20,9 @@ Imports:
     raster,
     rgdal
 Depends:
-    R(>= 3.1.0), leaflet, shiny
+    R(>= 3.1.0),
+    leaflet,
+    shiny
 LazyData: true
 License: GPL-3
 SystemRequirements: C++11
