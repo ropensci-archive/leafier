@@ -19,15 +19,13 @@ Imports:
     rgeos,
     raster,
     rgdal
-Depends:
-    R,
-    leaflet,
-    shiny
 LazyData: true
 License: GPL-3
 SystemRequirements: C++11
 Suggests:
-    rmarkdown
+    rmarkdown,
+    leaflet,
+    shiny
 Collate:
     'misc.R'
     'leafier-internal.R'
