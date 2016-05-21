@@ -2,8 +2,6 @@ context('05-shinyapp')
 
 test_that('make shiny app', {
 
-
-
 	library(shiny)
 	library(leaflet)
 

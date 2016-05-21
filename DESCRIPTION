@@ -13,19 +13,21 @@ Authors@R: c(person(c("Jeffrey", "O"), "Hanson", email='jeffrey.hanson@uqconnect
 	person(c('Jonathan'), 'Carroll', role='ctb'))
 Description: This R package provides tools to preprocess and render large
     spatial datasets in leafet.
+Depends:
+    R (>= 2.10)
 Imports:
     methods,
     sp,
     rgeos,
     rgdal,
-    raster
+    raster,
+    shiny,
+    leaflet
 LazyData: true
 License: GPL-3
 SystemRequirements: C++11
 Suggests:
     rmarkdown,
-    shiny,
-    leaflet
 Collate:
     'misc.R'
     'leafier-internal.R'
