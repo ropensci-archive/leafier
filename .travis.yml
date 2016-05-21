@@ -1,6 +1,7 @@
-language: c
+language: r
 sudo: required
 dist: trusty
+cache: packages
 script: ./travis-tool.sh install_deps
 
 before_script:
