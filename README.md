@@ -2,7 +2,6 @@
 ============
 
 [![Travis CI Build Status](https://img.shields.io/travis/jonocarroll/leafier/master.svg?label=Mac%20OSX%20%26%20Linux)](https://travis-ci.org/jonocarroll/leafier)
-
 [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/jonocarroll/leafier/master.svg?label=Windows)](https://ci.appveyor.com/project/jonocarroll/leafier)
 
 #### Render large spatial datasets in R.
