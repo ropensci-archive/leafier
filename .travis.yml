@@ -1,6 +1,5 @@
 language: r
-sudo: required
-dist: trusty
+sudo: true
 #script: ./travis-tool.sh 
 warnings_are_errors: false
 
@@ -25,6 +24,9 @@ warnings_are_errors: false
 #install:
 #  - Rscript -e "if (!require('devtools')) install.packages('devtools')"
 #  - Rscript -e "devtools::install_deps(dep = TRUE)"
+
+r:
+  - devel
 
 r_binary_install:
   - rgdal

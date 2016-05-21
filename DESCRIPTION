@@ -20,7 +20,7 @@ Imports:
     raster,
     rgdal
 Depends:
-    R(>= 3.1.0),
+    R,
     leaflet,
     shiny
 LazyData: true
