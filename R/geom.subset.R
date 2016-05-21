@@ -9,8 +9,10 @@
 #' @keywords boundary, box
 #' @export
 #' @examples
+#' \dontrun{
 #'      inter = geom.subset(bikeways2015, -27.460070, 153.020613, -27.480243, 153.030741)
 #'      leaflet() %>% addTiles() %>% addPolylines(data=inter) 
+#'      }
 
 geom.subset <- function( spgeom, top, left, bottom, right ){
 	coords <- data.frame(y = c(left, right, right, left ), x =c(top, top, bottom, bottom) )

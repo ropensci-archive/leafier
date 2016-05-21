@@ -21,8 +21,10 @@ geom.subset(spgeom, top, left, bottom, right)
 This function intersects a boundary box with a spatial object
 }
 \examples{
-inter = geom.subset(bikeways2015, -27.460070, 153.020613, -27.480243, 153.030741)
+\dontrun{
+     inter = geom.subset(bikeways2015, -27.460070, 153.020613, -27.480243, 153.030741)
      leaflet() \%>\% addTiles() \%>\% addPolylines(data=inter)
+     }
 }
 \keyword{boundary,}
 \keyword{box}

@@ -1,16 +1,16 @@
-
-  observe({
-    print(input$overplot)
-  })
-  
-  state <- reactiveValues(
-    last_plot_north = 0,
-    last_plot_west = 0,
-    last_plot_south = 0,
-    last_plot_east = 0,
-    last_plot_zoom = 0,
-    last_plot_overplot = 0.2
-  )
+# 
+#   observe({
+#     print(input$overplot)
+#   })
+#   
+#   state <- reactiveValues(
+#     last_plot_north = 0,
+#     last_plot_west = 0,
+#     last_plot_south = 0,
+#     last_plot_east = 0,
+#     last_plot_zoom = 0,
+#     last_plot_overplot = 0.2
+#   )
   
 needs_new_data <- reactive({
     
