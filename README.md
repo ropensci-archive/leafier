@@ -19,7 +19,7 @@ devtools:::install_github('paleo13/leafier')
 
 Once this package has been installed, you can read through the vignette for a tutorial on how to use it.
 
-[View it here](https://github.com/paleo13/leafier/raw/master/inst/doc/leafier.pdf), or by running this R code:
+[View it here](https://github.com/ropenscilabs/leafier/raw/master/inst/doc/leafier.pdf), or by running this R code:
 
 ```
 # open vignette in web browser
