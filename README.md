@@ -1,6 +1,7 @@
  leafier (under development)
 ============
 
+[![Project Status: Abandoned – Initial development has started, but there has not yet been a stable, usable release; the project has been abandoned and the author(s) do not intend on continuing development.](https://www.repostatus.org/badges/latest/abandoned.svg)](https://www.repostatus.org/#abandoned)
 [![Travis Build Status](https://img.shields.io/travis/paleo13/leafier/master.svg?label=Mac%20OSX%20%26%20Linux)](https://travis-ci.org/paleo13/leafier)
 [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/paleo13/leafier/master.svg?label=Windows)](https://ci.appveyor.com/project/paleo13/leafier)
 [![Coverage Status](https://codecov.io/github/paleo13/leafier/coverage.svg?branch=master)](https://codecov.io/github/paleo13/leafier?branch=master)
